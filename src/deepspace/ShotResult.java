@@ -7,6 +7,8 @@ package deepspace;
 /**
  *
  * @author antoniojrr
+ * @author kessler
  */
+
 public enum ShotResult {DONOTRESIST, RESIST}
 

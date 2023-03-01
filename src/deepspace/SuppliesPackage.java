@@ -7,7 +7,9 @@ package deepspace;
 /**
  *
  * @author antoniojrr
+ * @author kessler
  */
+
 public class SuppliesPackage {
     
     private float ammoPower;

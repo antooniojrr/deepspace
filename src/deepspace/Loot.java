@@ -7,6 +7,7 @@ package deepspace;
 /**
  *
  * @author antoniojrr
+ * @author kessler
  */
 public class Loot {
     
