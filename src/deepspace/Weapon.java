@@ -10,13 +10,13 @@ package deepspace;
  * @author kessler
  */
 
-public class Weapon {
+class Weapon {
     
     private String name;
     private WeaponType type;
     private int uses;
     
-    public Weapon( String name, WeaponType type, int uses) {
+    Weapon( String name, WeaponType type, int uses) {
         
         this.name = name;
         this.type = type;
@@ -24,7 +24,7 @@ public class Weapon {
         
     }
     
-    public Weapon ( Weapon w) {
+    Weapon ( Weapon w) {
         
         this.name = name;
         this.type = type;
@@ -40,15 +40,10 @@ public class Weapon {
     public float power() { return getType().getPower(); }
     
     public float useIt() {
-        
-        if ( getUses() > 0) {
-            
+        if (getUses() > 0){
             this.uses--;
             return power();
-            
-        }
-        
-        else return (float) 1.0;
+        } else return ((float) 1.0);
     }
     
     

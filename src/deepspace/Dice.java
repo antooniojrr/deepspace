@@ -10,7 +10,7 @@ import java.util.Random;
  * @author antoniojrr
  * @author kessler
  */
-public class Dice {
+class Dice {
     
     private final float NHANGARSPROB;
     private final float NSHIELDSPROB;
@@ -19,16 +19,13 @@ public class Dice {
     
     private Random generator;
     
-    public Dice() {
+    Dice() {
         
         NHANGARSPROB=(float) 0.25;
         NSHIELDSPROB=(float) 0.25;
         NWEAPONSPROB=(float) 0.33;
         FIRSTSHOTPROB=(float) 0.5;
-        
-        // Inicializar generator ?
-        // generator.doubles();
-        
+        generator = new Random();
     }
     
     public int initWithNHangars() {
@@ -68,12 +65,9 @@ public class Dice {
         
     }
     
-    public int whoStarts(int nPlayers) {
-        
-        double num = generator.nextDouble();
-        
-        // Trunca
-        return (int)(num*nPlayers);
+    public int whoStarts(int nPlayers) {        
+                
+        return generator.nextInt(nPlayers);
         
     }
     

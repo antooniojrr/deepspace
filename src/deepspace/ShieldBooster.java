@@ -10,14 +10,14 @@ package deepspace;
  * @author kessler
  */
 
-public class ShieldBooster {
+class ShieldBooster {
     
     private String name;
     private float boost;
     private int uses;
     
     
-    public ShieldBooster( String name, float boost, int uses) {
+    ShieldBooster( String name, float boost, int uses) {
         
         this.name=name;
         this.boost=boost;
@@ -25,7 +25,7 @@ public class ShieldBooster {
         
     }
     
-    public ShieldBooster( ShieldBooster s) {
+    ShieldBooster( ShieldBooster s) {
         
         this.name=s.getName();
         this.boost=s.getBoost();

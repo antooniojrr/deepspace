@@ -10,13 +10,13 @@ package deepspace;
  * @author kessler
  */
 
-public class SuppliesPackage {
+class SuppliesPackage {
     
     private float ammoPower;
     private float fuelUnits;
     private float shieldPower;
     
-    public SuppliesPackage(float ammoPower, float fuelUnits, float shieldPower) {
+    SuppliesPackage(float ammoPower, float fuelUnits, float shieldPower) {
         
         this.ammoPower=ammoPower;
         this.fuelUnits=fuelUnits;
@@ -24,7 +24,7 @@ public class SuppliesPackage {
         
     }
     
-    public SuppliesPackage(SuppliesPackage s) {
+    SuppliesPackage(SuppliesPackage s) {
         
         this.ammoPower=s.getAmmoPower();
         this.fuelUnits=s.getFuelUnits();

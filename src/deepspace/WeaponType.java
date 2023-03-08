@@ -17,7 +17,7 @@ public enum WeaponType {
         PLASMA((float) 4.0);
         
         private final float power;
-        private WeaponType(float power) { this.power=power; }
-        public float getPower() { return this.power; }
+        WeaponType(float power) { this.power=power; }
+        float getPower() { return this.power; }
         
     }

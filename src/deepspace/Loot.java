@@ -17,7 +17,7 @@ public class Loot {
     private int nHangars;
     private int nMedals;
     
-    public Loot(int supplies, int weapons, int shield, int hangars, int medals){
+    Loot(int supplies, int weapons, int shield, int hangars, int medals){
         
         this.nSupplies=supplies;
         this.nWeapons=weapons;
