@@ -10,4 +10,8 @@ package deepspace;
  */
 public class TestP1 {
     
+    public void main() {
+        
+    }
+    
 }
