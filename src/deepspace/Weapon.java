@@ -26,9 +26,9 @@ class Weapon {
     
     Weapon ( Weapon w) {
         
-        this.name = name;
-        this.type = type;
-        this.uses = uses;
+        this.name = w.name;
+        this.type = w.type;
+        this.uses = w.uses;
         
     }
     

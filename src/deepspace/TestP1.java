@@ -23,17 +23,18 @@ public class TestP1 {
         Loot my_loot = new Loot(NUM_SUPPLIES, NUM_WEAPONS, NUM_SHIELD,
                        NUM_HANGARS, NUM_MEDALS);
         
-        System.out.println("El número de ");
-        int loot_num_supplies = my_loot.getNSupplies();
-        int loot_num_weapons = my_loot.getNWeapons();
-        int loot_num_shield = my_loot.getNShield();
-        int loot_num_hangars = my_loot.getNHangars();
-        int loot_num_medals = my_loot.getNMedals();
+        System.out.println("Supplies: " + my_loot.getNSupplies());
         
         // Clase SuppliesPackage        
 
-        
+        final float AMMO_POWER =  1.0f;
+        final float FUEL_UNITS = 3.0f; 
+        final float SHIELD_POWER = 2.0f;
+
+        SuppliesPackage supplies = new SuppliesPackage(AMMO_POWER, FUEL_UNITS, 
+                                   SHIELD_POWER);
+
+        System.out.println("");
 
     }
-    
 }
