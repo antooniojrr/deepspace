@@ -30,7 +30,10 @@ public class TestP1 {
         int loot_num_hangars = my_loot.getNHangars();
         int loot_num_medals = my_loot.getNMedals();
         
+        // Clase SuppliesPackage        
+
         
+
     }
     
 }

@@ -9,7 +9,8 @@ package deepspace;
  * @author antoniojrr
  * @author kessler
  */
-public class Loot {
+
+class Loot {
     
     private int nSupplies;
     private int nWeapons;
