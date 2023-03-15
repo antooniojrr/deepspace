@@ -10,7 +10,7 @@ package deepspace;
  */
 public class TestP1 {
     
-    static void main(String[] args) {
+    static public void main(String[] args) {
         
         // Clase Loot
         
@@ -24,17 +24,25 @@ public class TestP1 {
                        NUM_HANGARS, NUM_MEDALS);
         
         System.out.println("Supplies: " + my_loot.getNSupplies());
+        System.out.println("Weapons: " + my_loot.getNWeapons());
+        System.out.println("Shield: " + my_loot.getNShield());
+        System.out.println("Hangars: " + my_loot.getNHangars());
+        System.out.println("Medals: " + my_loot.getNMedals());
         
         // Clase SuppliesPackage        
 
         final float AMMO_POWER =  1.0f;
         final float FUEL_UNITS = 3.0f; 
         final float SHIELD_POWER = 2.0f;
-
+        
         SuppliesPackage supplies = new SuppliesPackage(AMMO_POWER, FUEL_UNITS, 
                                    SHIELD_POWER);
 
-        System.out.println("");
-
+        System.out.println("Ammo Power: " + supplies.getAmmoPower());
+        System.out.println("Fuel Units: " + supplies.getFuelUnits());
+        System.out.println("Shield Power: " + supplies.getShieldPower());
+        
     }
 }
+
+
