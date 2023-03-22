@@ -20,4 +20,7 @@ public enum WeaponType {
         WeaponType(float power) { this.power=power; }
         float getPower() { return this.power; }
         
+        public String toString(){
+            return ("Power: " + getPower());
+        }
     }

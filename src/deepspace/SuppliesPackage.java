@@ -38,5 +38,8 @@ class SuppliesPackage {
     
     public float getShieldPower() {return this.shieldPower; }
     
-    
+    public String toString(){
+        return ("AmmoPower: " + getAmmoPower() + "FuelUnits: " + getFuelUnits()
+                + "ShieldPower: " + getShieldPower());
+    }
 }

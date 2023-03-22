@@ -46,5 +46,11 @@ class Weapon {
         } else return ((float) 1.0);
     }
     
+    public String toString(){
+        return ("Nombre: " + getName() + "Power: " + power()
+                + "Uses: " + getUses());
+    }
+    
+    WeaponToUI getUIVersion(){return new WeaponToUI(this);}
     
 }

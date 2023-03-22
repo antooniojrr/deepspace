@@ -48,4 +48,10 @@ class ShieldBooster {
         else return (float) 1.0;
     }
     
+     public String toString(){
+        return ("Nombre: " + getName() + "Boost: " + getBoost()
+                + "Uses: " + getUses());
+    }
+     
+    ShieldToUI getUIVersion(){return new ShieldToUI(this);}
 }

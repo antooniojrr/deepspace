@@ -38,5 +38,12 @@ class Loot {
     
     public int getNMedals() { return this.nMedals; }
     
+    public String toString(){
+        return ("NSupplies: " + getNSupplies() + "NWeapons: " + getNWeapons()
+                + "NShield: " + getNShield() + "NHangars: " + getNHangars()
+                + "NMedals: " + getNMedals());
+    }
+    
+    LootToUI getUIVersion(){return new LootToUI (this);}
     
 }
