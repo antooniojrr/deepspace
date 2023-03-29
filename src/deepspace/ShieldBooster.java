@@ -53,5 +53,5 @@ class ShieldBooster {
                 + "Uses: " + getUses());
     }
      
-    ShieldToUI getUIVersion(){return new ShieldToUI(this);}
+    ShieldToUI getUIversion(){return new ShieldToUI(this);}
 }
