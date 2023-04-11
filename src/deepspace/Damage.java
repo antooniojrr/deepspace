@@ -46,22 +46,61 @@ public class Damage {
         
         return index;    
     }
-    /*
+    
     public Damage adjust(ArrayList<Weapon> w, ArrayList<ShieldBooster> s){
         
-        if (w.size() < nWeapons || s.size() < nShields){
+        int sh = 0;
+        int nShields_new, nWeapons_new;
+        ArrayList<WeaponType> weapons_new = null;
+        
+        for (int i = 0; i < s.size(); i++){
+            sh += s.get(i).getUses();
+        }
+        
+        if (nShields > sh)
+            nShields_new = sh;
+        else
+            nShields_new = nShields;
+        
+        if (nWeapons != -1){
+            if (nWeapons > w.size())
+                nWeapons_new = w.size();
+            else 
+                nWeapons_new = nWeapons;
             
+            return new Damage(nWeapons_new, nShields_new);
         }
         else{
+            for (int i = 0; i < weapons.size(); i++){
+                if(arrayContainsType(w, weapons.get(i)) != -1)
+                    weapons_new.add(weapons.get(i));
+            }
             
+            return new Damage(weapons_new, nShields_new);
         }
-    } Ha dicho que esta clase es la más interesante de toda la práctica,
-       incluso de todo el juego. Cuidado con las implementaciones. adjust no tengo
-       ni idea de cómo implementarlo. w y s son los valores del jugador. Si tenemos
-       un daño de 25 pero nuestro jugador solo tiene 3, solo le quitamos 3. Tenemos que
-       idear nosotros un algoritmo que tenga sentido. */
+    } 
     
     public void discardWeapon(Weapon w){
-        if (w)
+        if (nWeapons != -1)
+            if (nWeapons > 0)
+                nWeapons--;
+        else
+            weapons.remove(w.getType());              
     }
+    
+    public void discardShieldBooster(){
+        if (nShields > 0)
+            nShields--;
+    }
+    
+    public boolean hasNoEffect(){
+        if (nWeapons != -1)
+            return (nShields == 0 && nWeapons == 0);
+        else
+            return (nShields == 0 && weapons.isEmpty());
+    }
+    
+    int getNShields(){return nShields;}
+    int getNWeapons(){return nWeapons;}
+    ArrayList <WeaponType> getWeapons(){return weapons;}
 }
