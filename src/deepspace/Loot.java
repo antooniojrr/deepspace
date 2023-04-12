@@ -32,7 +32,7 @@ class Loot {
     
     public int getNWeapons() { return this.nWeapons; }
     
-    public int getNShield() { return this.nShield; }
+    public int getNShields() { return this.nShield; }
     
     public int getNHangars() { return this.nHangars; }
     
@@ -40,10 +40,10 @@ class Loot {
     
     public String toString(){
         return ("NSupplies: " + getNSupplies() + "NWeapons: " + getNWeapons()
-                + "NShield: " + getNShield() + "NHangars: " + getNHangars()
+                + "NShield: " + getNShields() + "NHangars: " + getNHangars()
                 + "NMedals: " + getNMedals());
     }
     
-    LootToUI getUIVersion(){return new LootToUI (this);}
+    LootToUI getUIversion(){return new LootToUI (this);}
     
 }

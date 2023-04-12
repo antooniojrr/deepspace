@@ -25,7 +25,7 @@ public class TestP1 {
         
         System.out.println("Supplies: " + my_loot.getNSupplies());
         System.out.println("Weapons: " + my_loot.getNWeapons());
-        System.out.println("Shield: " + my_loot.getNShield());
+        System.out.println("Shield: " + my_loot.getNShields());
         System.out.println("Hangars: " + my_loot.getNHangars());
         System.out.println("Medals: " + my_loot.getNMedals());
         

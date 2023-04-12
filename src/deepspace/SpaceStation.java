@@ -150,7 +150,7 @@ public class SpaceStation {
     public float getAmmoPower(){return ammoPower;}
     public float getFuelUnits(){return fuelUnits;}
     public Hangar getHangar(){return hangar;}
-    public String getname(){return name;}
+    public String getName(){return name;}
     public int getNMedals(){return nMedals;}
     public Damage getPendingDamage(){return pendingDamage;}
     public ArrayList<ShieldBooster> getShieldBoosters(){return shieldBoosters;}
