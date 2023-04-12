@@ -84,6 +84,8 @@ class CardDealer {
         suppliesPackages.add(new SuppliesPackage(3,50,3));    
         suppliesPackages.add(new SuppliesPackage(40,100,40));
         suppliesPackages.add(new SuppliesPackage(100,100,100));
+        
+        suppliesPackages.add(new SuppliesPackage(0,0,0));
     }
     private void createWeapons() {
        weapons.add(new Weapon("Láser infinito",WeaponType.LASER,100));
@@ -104,13 +106,15 @@ class CardDealer {
        weapons.add(new Weapon("Misil ACME",WeaponType.MISSILE,1));
        weapons.add(new Weapon("Misil normal",WeaponType.MISSILE,2));
        weapons.add(new Weapon("Misil normal",WeaponType.MISSILE,2));
-       weapons.add(new Weapon("Misil mejorado",WeaponType.MISSILE,2));       
+       weapons.add(new Weapon("Misil mejorado",WeaponType.MISSILE,2));
+       weapons.add(new Weapon("Misil Bill Bala", WeaponType.MISSILE, 1));
        
        weapons.add(new Weapon("Cañón definitivo",WeaponType.PLASMA,100)); 
        weapons.add(new Weapon("Cañón ACME",WeaponType.PLASMA,1)); 
        weapons.add(new Weapon("Cañón ACME",WeaponType.PLASMA,1)); 
        weapons.add(new Weapon("Cañón ACME",WeaponType.PLASMA,1)); 
        weapons.add(new Weapon("Cañón mejorado",WeaponType.PLASMA,2));       
+       weapons.add(new Weapon("Cañón Lanza Bill", WeaponType.PLASMA, 10));
        
     }
     private void createShieldBoosters() {
@@ -125,6 +129,7 @@ class CardDealer {
        shieldBoosters.add(new ShieldBooster("Escudo ACME",1.5f,2));
        shieldBoosters.add(new ShieldBooster("Escudo normal",3.0f,2));
        shieldBoosters.add(new ShieldBooster("Escudo normal",4.0f,2));
+       shieldBoosters.add(new ShieldBooster("Escudo Hyliano", 5.0f, 50));
     }
     private void createHangars() {
         hangars.add(new Hangar(4));
@@ -204,7 +209,8 @@ class CardDealer {
         enemies.add(new EnemyStarShip("Enemigo difícil 0",200,100,goodLoot,hardSpecificDamage0));          
         enemies.add(new EnemyStarShip("Enemigo difícil 1",100,200,goodLoot,hardSpecificDamage0));   
         
-        enemies.add(new EnemyStarShip("Enemigo imposible",500,500,goodLoot,hardSpecificDamage0));              
+        enemies.add(new EnemyStarShip("Enemigo imposible",500,500,goodLoot,hardSpecificDamage0));
+        enemies.add(new EnemyStarShip("Bullejos", 750, 750, badLoot, hardSpecificDamage0));
     }
 }
 

@@ -60,4 +60,28 @@ public class GameUniverse {
     public GameUniverseToUI getUIVersion() {
         return new GameUniverseToUI(currentStation,currentEnemy);
     }
+    
+    public void init(ArrayList<String> names){
+        GameState state = getState();
+        if (state == GameState.CANNOTPLAY){
+            ArrayList<SpaceStation> spaceStations = new ArrayList(); 
+            CardDealer dealer = CardDealer.getInstance();
+            
+            for (int i = 0; i < names.size(); i++){
+                SuppliesPackage supplies = dealer.nextSuppliesPackage();
+                SpaceStation station = new SpaceStation(names.get(i), supplies);
+                spaceStations.add(station);
+                
+                int nh = dice.initWithNHangars();
+                int nw = dice.initWithNWeapons();
+                int ns = dice.initWithNShields();
+                Loot lo = new Loot(0,nw,ns,nh,0);
+                
+                station.setLoot(lo);     
+            }
+            
+            currentStationIndex = dice.whoStarts(names.size());
+            
+        }
+    }
 }

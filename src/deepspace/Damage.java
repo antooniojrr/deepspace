@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Damage {
     private int nShields; 
     private int nWeapons;
-    private ArrayList <WeaponType> weapons;
+    private ArrayList <WeaponType> weapons = new ArrayList();
     
     Damage (int w, int s){
         nWeapons = w; 

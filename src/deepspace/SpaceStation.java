@@ -21,8 +21,8 @@ public class SpaceStation {
     private float shieldPower;
     private Damage pendingDamage = null;
     private Hangar hangar = null;
-    private ArrayList<Weapon> weapons = null;
-    private ArrayList<ShieldBooster> shieldBoosters = null;    
+    private ArrayList<Weapon> weapons = new ArrayList();
+    private ArrayList<ShieldBooster> shieldBoosters = new ArrayList();    
     
     private void assignFuelValue(float f){
         if (f < MAXFUEL)

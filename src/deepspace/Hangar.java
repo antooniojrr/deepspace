@@ -11,8 +11,8 @@ import java.util.ArrayList;
  */
 public class Hangar {
     private int maxElements;
-    private ArrayList<Weapon> weapons;
-    private ArrayList<ShieldBooster> shieldBoosters;
+    private ArrayList<Weapon> weapons = new ArrayList();
+    private ArrayList<ShieldBooster> shieldBoosters= new ArrayList();
     
     Hangar(int capacity){maxElements = capacity;}
     Hangar(Hangar h){this.maxElements = h.getMaxElements();}
