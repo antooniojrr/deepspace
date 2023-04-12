@@ -16,7 +16,7 @@ public class GameUniverse {
     private int turns;
     
     private SpaceStation currentStation;
-    private ArrayList<SpaceStation> spaceStations; 
+    private ArrayList<SpaceStation> spaceStations = new ArrayList(); 
     private Dice dice; 
     private EnemyStarShip currentEnemy;
     private GameStateController gameState;
@@ -64,7 +64,6 @@ public class GameUniverse {
     public void init(ArrayList<String> names){
         GameState state = getState();
         if (state == GameState.CANNOTPLAY){
-            ArrayList<SpaceStation> spaceStations = new ArrayList(); 
             CardDealer dealer = CardDealer.getInstance();
             
             for (int i = 0; i < names.size(); i++){
@@ -81,7 +80,9 @@ public class GameUniverse {
             }
             
             currentStationIndex = dice.whoStarts(names.size());
-            
+            currentStation = spaceStations.get(currentStationIndex);
+            currentEnemy = dealer.nextEnemy();
+            gameState.next(turns, spaceStations.size());
         }
     }
 }
