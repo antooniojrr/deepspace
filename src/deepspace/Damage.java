@@ -21,7 +21,9 @@ public class Damage {
     }
     
     Damage(ArrayList <WeaponType> wl, int s){
-        weapons = wl; 
+        weapons = new ArrayList<WeaponType>();
+        for(int i = 0; i < wl.size(); i++)
+            weapons.add(wl.get(i));
         nShields = s;
         nWeapons = -1; // constante
     }
