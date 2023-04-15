@@ -57,12 +57,12 @@ public class GameUniverse {
         return gameState.getState();
     }
     
-    public GameUniverseToUI getUIVersion() {
+    public GameUniverseToUI getUIversion() {
         return new GameUniverseToUI(currentStation,currentEnemy);
     }
     
     public void init(ArrayList<String> names){
-        GameState state = getState();
+        GameState state = gameState.getState();
         if (state == GameState.CANNOTPLAY){
             CardDealer dealer = CardDealer.getInstance();
             
@@ -84,5 +84,77 @@ public class GameUniverse {
             currentEnemy = dealer.nextEnemy();
             gameState.next(turns, spaceStations.size());
         }
+    }
+    
+    public boolean nextTurn(){
+        boolean next = false;
+        GameState state = gameState.getState();
+        
+        if (state == GameState.AFTERCOMBAT){
+            boolean stationState = currentStation.validState();
+            if (stationState){
+                currentStationIndex = (currentStationIndex+1) % spaceStations.size();
+                turns++;
+                
+                currentStation = spaceStations.get(currentStationIndex);
+                currentStation.cleanUpMountedItems();
+                CardDealer dealer = CardDealer.getInstance();
+                currentEnemy = dealer.nextEnemy();
+                gameState.next(turns,spaceStations.size());
+                
+                next = true;              
+            }
+        }
+        
+        return next;
+    }
+    
+    public CombatResult combat(SpaceStation station, EnemyStarShip enemy){
+        CombatResult combatResult; 
+        boolean enemyWins;
+        ShotResult result;
+        GameCharacter ch = dice.firstShot();
+        if (ch == GameCharacter.ENEMYSTARSHIP){
+            result = station.receiveShot(enemy.fire());
+            if (result == ShotResult.RESIST){
+                result = enemy.receiveShot(station.fire());
+                enemyWins = (result == ShotResult.RESIST);
+            }
+            else enemyWins = true;            
+        } else{
+            result = enemy.receiveShot(station.fire());
+            enemyWins = (result == ShotResult.RESIST);
+        }
+        
+        if (enemyWins){
+            float s = station.getSpeed();
+            boolean moves = dice.spaceStationMoves(s);
+            if (!moves){
+                Damage damage = enemy.getDamage();
+                station.setPendingDamage(damage);
+                combatResult = CombatResult.ENEMYWINS;
+            }
+            else
+                station.move();
+                combatResult = CombatResult.STATIONESCAPES;
+        }
+        else{
+            Loot aLoot = enemy.getLoot();
+            station.setLoot(aLoot);
+            combatResult = CombatResult.STATIONWINS;
+        }
+        
+        gameState.next(turns, spaceStations.size());
+        
+        return combatResult;
+    }
+    
+    
+    public CombatResult combat(){
+        GameState state = gameState.getState();
+        
+        if ((state == GameState.BEFORECOMBAT) || (state == GameState.INIT)){
+            return combat(currentStation, currentEnemy);
+        } else return CombatResult.NOCOMBAT;
     }
 }
