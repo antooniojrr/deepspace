@@ -53,6 +53,16 @@ public class GameUniverse {
         currentStation.discardShieldBoosterInHangar(i);
     }
     
+    public void discardWeapon(int i) {
+        if((GameState.INIT == gameState.getState()) || (gameState.getState() == GameState.AFTERCOMBAT) )
+            currentStation.discardWeapon(i);
+    }
+    
+    public void discardShieldBooster(int i) {
+        if((GameState.INIT == gameState.getState()) || (gameState.getState() == GameState.AFTERCOMBAT) )
+            currentStation.discardShieldBooster(i);
+    }
+    
     public GameState getState() {
         return gameState.getState();
     }
