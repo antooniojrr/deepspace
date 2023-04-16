@@ -21,8 +21,8 @@ public class SpaceStation {
     private float shieldPower;
     private Damage pendingDamage = null;
     private Hangar hangar = null;
-    private ArrayList<Weapon> weapons = new ArrayList();
-    private ArrayList<ShieldBooster> shieldBoosters = new ArrayList();    
+    private ArrayList<Weapon> weapons;
+    private ArrayList<ShieldBooster> shieldBoosters;    
     
     private void assignFuelValue(float f){
         if (f < MAXFUEL)
@@ -41,6 +41,9 @@ public class SpaceStation {
         ammoPower = supplies.getAmmoPower();
         fuelUnits = supplies.getFuelUnits();
         shieldPower = supplies.getShieldPower();
+        weapons = new ArrayList();
+        shieldBoosters = new ArrayList();
+        
     }
     
     public boolean receiveWeapon(Weapon w){

@@ -16,7 +16,7 @@ public class GameUniverse {
     private int turns;
     
     private SpaceStation currentStation;
-    private ArrayList<SpaceStation> spaceStations = new ArrayList(); 
+    private ArrayList<SpaceStation> spaceStations; 
     private Dice dice; 
     private EnemyStarShip currentEnemy;
     private GameStateController gameState;
@@ -29,6 +29,7 @@ public class GameUniverse {
         spaceStations=null;
         currentEnemy=null;
         currentStationIndex=-1;
+        spaceStations = new ArrayList();
     }
     
     public boolean haveAWinner() {
