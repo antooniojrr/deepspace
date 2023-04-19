@@ -86,9 +86,10 @@ public class Damage {
     } 
     
     public void discardWeapon(Weapon w){
-        if (nWeapons != -1)
+        if (nWeapons != -1) {
             if (nWeapons > 0)
                 nWeapons--;
+        }
         else
             weapons.remove(w.getType());              
     }

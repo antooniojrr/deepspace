@@ -51,6 +51,8 @@ class Weapon {
                 + "Uses: " + getUses());
     }
     
-    WeaponToUI getUIversion(){return new WeaponToUI(this);}
+    WeaponToUI getUIversion(){
+        return new WeaponToUI(this);
+    }
     
 }

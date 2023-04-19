@@ -19,8 +19,8 @@ public class SpaceStation {
     private String name;
     private int nMedals;
     private float shieldPower;
-    private Damage pendingDamage = null;
-    private Hangar hangar = null;
+    private Damage pendingDamage;
+    private Hangar hangar;
     private ArrayList<Weapon> weapons;
     private ArrayList<ShieldBooster> shieldBoosters;    
     
@@ -43,6 +43,9 @@ public class SpaceStation {
         shieldPower = supplies.getShieldPower();
         weapons = new ArrayList();
         shieldBoosters = new ArrayList();
+        pendingDamage=null;
+        hangar=null;
+        nMedals=0;
         
     }
     

@@ -47,7 +47,7 @@ public class Hangar {
     }
     
     Weapon removeWeapon(int i){
-        if (i >= 0 && i < getMaxElements()){
+        if (i >= 0 && i < weapons.size()){
             Weapon w = weapons.get(i);
             weapons.remove(i);
             return w;
@@ -56,7 +56,7 @@ public class Hangar {
     }
     
     ShieldBooster removeShieldBooster(int i){
-        if (i >= 0 && i < getMaxElements()){
+        if (i >= 0 && i < shieldBoosters.size()){
             ShieldBooster s = shieldBoosters.get(i);
             shieldBoosters.remove(s);
             return s;
