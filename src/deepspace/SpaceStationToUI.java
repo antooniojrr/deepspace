@@ -36,6 +36,10 @@ public class SpaceStationToUI {
         shieldPower=station.getShieldPower();
         
         for (Weapon w:station.getWeapons()) {
+            if (w==null) {
+                System.out.println("aqui");
+            }
+  
             weapons.add(w.getUIversion());
         }
         

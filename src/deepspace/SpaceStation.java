@@ -41,8 +41,8 @@ public class SpaceStation {
         ammoPower = supplies.getAmmoPower();
         fuelUnits = supplies.getFuelUnits();
         shieldPower = supplies.getShieldPower();
-        weapons = new ArrayList();
-        shieldBoosters = new ArrayList();
+        weapons = new ArrayList<>();
+        shieldBoosters = new ArrayList<>();
         pendingDamage=null;
         hangar=null;
         nMedals=0;
@@ -86,13 +86,17 @@ public class SpaceStation {
     
     public void mountWeapon(int i){
         if (hangar != null){
-            weapons.add(hangar.removeWeapon(i));
+            Weapon w = hangar.removeWeapon(i);
+            if ( w != null)
+                weapons.add(w);
         }
     }
     
     public void mountShieldBooster(int i){
         if (hangar != null){
-            shieldBoosters.add(hangar.removeShieldBooster(i));
+            ShieldBooster s = hangar.removeShieldBooster(i);
+            if (s != null)
+                shieldBoosters.add(s);
         }
     }
     
@@ -227,5 +231,9 @@ public class SpaceStation {
     public ArrayList<ShieldBooster> getShieldBoosters(){return shieldBoosters;}
     public ArrayList<Weapon> getWeapons(){return weapons;}
     public float getShieldPower(){return shieldPower;}
-    public SpaceStationToUI getUIversion(){return new SpaceStationToUI(this);}    
+    
+    public SpaceStationToUI getUIversion(){
+        
+        return new SpaceStationToUI(this);
+    }    
 }

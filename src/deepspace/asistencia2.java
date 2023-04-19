@@ -22,7 +22,7 @@ public class asistencia2 {
         for (int i = 0; i < NUM_LASER; i++)
             armas.add(WeaponType.LASER);
         
-        for(int i = 0; i < 7; i++)
+        for(int i = 0; i < NUM_PLASMA; i++)
             armas.add(WeaponType.PLASMA);
         
         for (int i = 0; i < NUM_MISSILE; i++)
