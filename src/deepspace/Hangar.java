@@ -15,7 +15,13 @@ public class Hangar {
     private ArrayList<ShieldBooster> shieldBoosters= new ArrayList();
     
     Hangar(int capacity){maxElements = capacity;}
-    Hangar(Hangar h){this.maxElements = h.getMaxElements();}
+    Hangar(Hangar h){
+        this.maxElements = h.getMaxElements();
+        for (Weapon w : h.weapons)
+            addWeapon(w);
+        for (ShieldBooster s : h.shieldBoosters)
+            addShieldBooster(s);
+    }
     
     HangarToUI getUIversion(){return new HangarToUI(this);}
     
@@ -62,6 +68,14 @@ public class Hangar {
             return s;
         }
         else return null;
-    } 
+    }
+    
+    public String toString() {
+        String out = "Max Elements: " + maxElements + ", Weapons: ";
+        out += weapons.toString() + ", Shields: ";
+        out += shieldBoosters.toString();
+        return out;
+        
+    }
     
 }

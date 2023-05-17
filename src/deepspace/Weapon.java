@@ -35,7 +35,7 @@ class Weapon {
     public WeaponType getType() { return this.type; }
     public int getUses() { return this.uses; }
     
-    public String getName() { return this.getName(); }
+    public String getName() { return name; }
     
     public float power() { return getType().getPower(); }
     

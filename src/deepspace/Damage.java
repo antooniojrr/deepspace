@@ -56,7 +56,7 @@ public class Damage {
         
         int sh = 0;
         int nShields_new, nWeapons_new;
-        ArrayList<WeaponType> weapons_new = null;
+        ArrayList<WeaponType> weapons_new = new ArrayList<>();
         
         for (int i = 0; i < s.size(); i++){
             sh += s.get(i).getUses();
