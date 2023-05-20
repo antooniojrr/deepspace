@@ -19,8 +19,8 @@ public class NumericDamage extends Damage {
     }
     
     NumericDamage (int w, int s){
+        super(s);
         nWeapons = w; 
-        setNShields(s);
     }
     
     public NumericDamage adjust(ArrayList<Weapon> w, ArrayList<ShieldBooster> s){
@@ -55,5 +55,9 @@ public class NumericDamage extends Damage {
     }
     
     int getNWeapons(){return nWeapons;}
+    
+    public NumericDamage copy() {
+        return new NumericDamage(getNWeapons(),getNShields());
+    }
     
 }

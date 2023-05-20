@@ -32,13 +32,13 @@ public class SpecificDamage extends Damage {
     }
     
     SpecificDamage(ArrayList <WeaponType> wl, int s){
+        super(s);
         weapons = new ArrayList<WeaponType>();
         if (wl!=null) {
             int size=wl.size();
             for(int i = 0; i < size; i++)
                 weapons.add(wl.get(i));
         }
-        setNShields(s);
     }
     
     public SpecificDamage adjust(ArrayList<Weapon> w, ArrayList<ShieldBooster> s){
@@ -74,5 +74,13 @@ public class SpecificDamage extends Damage {
     }
     
     ArrayList <WeaponType> getWeapons(){return weapons;}
+    
+    public SpecificDamage copy() {
+        int s = getNShields();
+        ArrayList<WeaponType> wl = new ArrayList<>();
+        for (WeaponType wt : getWeapons())
+            wl.add(wt);
+        return new SpecificDamage(wl,s);
+    }
     
 }

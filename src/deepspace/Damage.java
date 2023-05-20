@@ -11,6 +11,9 @@ import java.util.ArrayList;
  */
 public abstract class Damage {
     
+    Damage(int s) {
+        nShields=s;
+    }
     private int nShields;
     
     abstract DamageToUI getUIversion();
@@ -28,5 +31,6 @@ public abstract class Damage {
             
     int getNShields(){return nShields;}
     
-    void setNShields(int s) { nShields=s; }
+    public abstract Damage copy();
+    
 }
