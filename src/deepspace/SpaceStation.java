@@ -49,6 +49,12 @@ public class SpaceStation {
         
     }
     
+    public SpaceStation(SpaceStation station) {
+        this(station.name, new SuppliesPackage(station.getAmmoPower(),
+                                               station.getFuelUnits(),
+                                               station.getShieldPower()));
+    }
+    
     public boolean receiveWeapon(Weapon w){
         boolean ret = false;
         if (hangar != null)
@@ -167,7 +173,7 @@ public class SpaceStation {
             
     }
     
-    public void setLoot(Loot loot){
+    public Transformation setLoot(Loot loot){
         CardDealer dealer = CardDealer.getInstance();
         int h = loot.getNHangars();
         if (h>0) {
@@ -197,6 +203,12 @@ public class SpaceStation {
         
         nMedals+=loot.getNMedals();
         
+        if (loot.spaceCity())
+            return Transformation.SPACECITY;
+        else if (loot.getEfficient())
+            return Transformation.GETEFFICIENT;
+        else
+            return Transformation.NOTRANSFORM;
     }
     
     public void discardWeapon(int i){

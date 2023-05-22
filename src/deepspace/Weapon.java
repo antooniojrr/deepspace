@@ -10,7 +10,7 @@ package deepspace;
  * @author kessler
  */
 
-class Weapon {
+class Weapon implements CombatElement {
     
     private String name;
     private WeaponType type;
