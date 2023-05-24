@@ -24,7 +24,7 @@ public class SpaceCity extends SpaceStation {
     public ArrayList<SpaceStation> getCollaborators() { return collaborators; }
     
     public float fire() {
-        float dam = this.fire();
+        float dam = super.fire();
         for (SpaceStation station : this.getCollaborators())
             dam += station.fire();
         return dam;
