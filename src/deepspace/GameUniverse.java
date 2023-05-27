@@ -32,6 +32,8 @@ public class GameUniverse {
         currentStationIndex=-1;
         spaceStations = new ArrayList();
     }
+/***************************************************************************/   
+/* PRÁCTICA 4*/
     
     private void makeStationEfficient(){
         if (dice.extraEfficiency())
@@ -41,11 +43,16 @@ public class GameUniverse {
     }
     
     private void createSpaceCity(){
-        if (haveSpaceCity == false)
-            ArrayList<SpaceStation> collaborators
-            
+        if (haveSpaceCity == false){
+            ArrayList<SpaceStation> collaborators = new ArrayList<>();
+            collaborators = spaceStations; 
+            collaborators.remove(currentStation);
+            currentStation = new SpaceCity(currentStation, collaborators);
+            haveSpaceCity = true;            
+        }
     }
     
+/****************************************************************************/
     public boolean haveAWinner() {
         return (currentStation.getNMedals() >= WIN);
     }
@@ -165,8 +172,19 @@ public class GameUniverse {
         }
         else{
             Loot aLoot = enemy.getLoot();
+            
+            if (aLoot.getEfficient()){
+                makeStationEfficient();
+                combatResult = CombatResult.STATIONWINSANDCONVERTS;
+            }
+            else if (aLoot.spaceCity()){
+                createSpaceCity();
+                combatResult = CombatResult.STATIONWINSANDCONVERTS;
+            }
+            else
+                combatResult = CombatResult.STATIONWINS;
+                
             station.setLoot(aLoot);
-            combatResult = CombatResult.STATIONWINS;
         }
         
         gameState.next(turns, spaceStations.size());
