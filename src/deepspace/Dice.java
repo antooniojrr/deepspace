@@ -16,22 +16,23 @@ class Dice {
     private final float NSHIELDSPROB;
     private final float NWEAPONSPROB;
     private final float FIRSTSHOTPROB;
+    private final static float EXTRAEFFICIENCYPROB = 0.8f;
     
     private Random generator;
     
     Dice() {
         
-        NHANGARSPROB=(float) 0.25;
-        NSHIELDSPROB=(float) 0.25;
-        NWEAPONSPROB=(float) 0.33;
-        FIRSTSHOTPROB=(float) 0.5;
+        NHANGARSPROB= 0.25f;
+        NSHIELDSPROB= 0.25f;
+        NWEAPONSPROB= 0.33f;
+        FIRSTSHOTPROB= 0.5f;
         generator = new Random();
     }
     
     public int initWithNHangars() {
         
         int result=1;
-        if (generator.nextDouble() <= (double)NHANGARSPROB)
+        if (generator.nextFloat() <= NHANGARSPROB)
             result=0;
         
         return result;
@@ -41,12 +42,12 @@ class Dice {
     public int initWithNWeapons() {
         
         int result;
-        double prob = generator.nextDouble();
+        double prob = generator.nextFloat();
         
-        if ( prob <= (double)NWEAPONSPROB)
+        if ( prob <= NWEAPONSPROB)
             result=1;
         
-        else if ( prob <= (double)(2*NWEAPONSPROB))
+        else if ( prob <= (2*NWEAPONSPROB))
             result=2;
         
         else
@@ -58,7 +59,7 @@ class Dice {
     public int initWithNShields() {
         
         int result=0;
-        if (generator.nextDouble() <= (double)NSHIELDSPROB)
+        if (generator.nextFloat() <= NSHIELDSPROB)
             result=1;
         
         return result;
@@ -75,7 +76,7 @@ class Dice {
         
         GameCharacter result= GameCharacter.ENEMYSTARSHIP;
         
-        if ( generator.nextDouble() <= FIRSTSHOTPROB)
+        if ( generator.nextFloat() <= FIRSTSHOTPROB)
             result = GameCharacter.SPACESTATION;
         
         return result;
@@ -86,6 +87,10 @@ class Dice {
         
         return (generator.nextDouble() <= speed);
         
+    }
+    
+    public boolean extraEfficiency(){
+        return (generator.nextFloat() <= EXTRAEFFICIENCYPROB);
     }
     
 }

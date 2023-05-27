@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author david
  */
-public class SpaceStation {
+public class SpaceStation implements SpaceFighter {
     private final float MAXFUEL = 100f; 
     private final float SHIELDLOSSPERUNITSHOT = 0.1f; 
     

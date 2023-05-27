@@ -14,7 +14,8 @@ public class GameUniverse {
     private static final int WIN = 10;
     private int currentStationIndex;
     private int turns;
-    
+    private boolean haveSpaceCity;
+
     private SpaceStation currentStation;
     private ArrayList<SpaceStation> spaceStations; 
     private Dice dice; 
@@ -30,6 +31,19 @@ public class GameUniverse {
         currentEnemy=null;
         currentStationIndex=-1;
         spaceStations = new ArrayList();
+    }
+    
+    private void makeStationEfficient(){
+        if (dice.extraEfficiency())
+            currentStation = new BetaPowerEfficientSpaceStation(currentStation);
+        else
+            currentStation = new PowerEfficientSpaceStation(currentStation);
+    }
+    
+    private void createSpaceCity(){
+        if (haveSpaceCity == false)
+            ArrayList<SpaceStation> collaborators
+            
     }
     
     public boolean haveAWinner() {
