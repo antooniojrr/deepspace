@@ -1,41 +1,34 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
+
 package View.GUI;
 
 import java.util.ArrayList;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 /**
- *
- * @author antoniojrr
+ * @brief Permite obtener los nombres de los jugadores. Se permiten como máximo
+ * 4 jugadores y como mínimo se tienen que introducir dos jugadores.
  */
-public class NamesCapture extends javax.swing.JDialog {
-    private int nPlayers = 1;
-    private ArrayList<String> names = new ArrayList<>();
-    private MainWindow parent;
+public class NamesCapture extends JDialog {
+    ArrayList<String> names = new ArrayList<>();
+    
 
     /**
-     * Creates new form NamesCapture
+     * @brief Constructor con parámetro
+     * @param parent : JFrame principal del programa
      */
-    public NamesCapture(MainWindow parent, int numPlayers) {
+    public NamesCapture(MainWindow parent) {
         super(parent, true);
-        this.parent = parent;
-        nPlayers = numPlayers;
         initComponents();
-        if (nPlayers < 4) {
-            jtName4.setVisible(false);
-            jLabel4.setVisible(false);
-            if (nPlayers < 3) {
-                jtName3.setVisible(false);
-                jLabel3.setVisible(false);
-                if (nPlayers < 2) {
-                    jtName2.setVisible(false);
-                    jLabel2.setVisible(false);  
-                }
+        setLocationRelativeTo(null);
+        setTitle (parent.getAppName());
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                // Se decide que cancelar la entrada de nombres supone no iniciar la aplicación
+                System.exit(0);
             }
-                
-        }
-        setLocationRelativeTo (null);
+        });
     }
 
     /**
@@ -47,22 +40,31 @@ public class NamesCapture extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jtName2 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        name1 = new javax.swing.JLabel();
+        name2 = new javax.swing.JLabel();
+        name3 = new javax.swing.JLabel();
+        name4 = new javax.swing.JLabel();
         jtName1 = new javax.swing.JTextField();
-        jbStart = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        jtName2 = new javax.swing.JTextField();
         jtName3 = new javax.swing.JTextField();
         jtName4 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        jbStart = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel2.setText("Nombre 2: ");
+        name1.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
+        name1.setText("Nombre 1: ");
 
-        jLabel1.setText("Nombre 1: ");
+        name2.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
+        name2.setText("Nombre 2: ");
 
+        name3.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
+        name3.setText("Nombre 3: ");
+
+        name4.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
+        name4.setText("Nombre 4: ");
+
+        jbStart.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         jbStart.setText("Empezar");
         jbStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,66 +72,54 @@ public class NamesCapture extends javax.swing.JDialog {
             }
         });
 
-        jLabel3.setText("Nombre 4: ");
-
-        jtName4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtName4ActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Nombre 3: ");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jtName1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jtName2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jbStart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jtName4))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jtName3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(name1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtName1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(name2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtName2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(name3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtName3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(name4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtName4))
+                    .addComponent(jbStart, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(name1)
                     .addComponent(jtName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(name2)
                     .addComponent(jtName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jtName4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(name3)
+                    .addComponent(jtName3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jtName3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(name4)
+                    .addComponent(jtName4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jbStart)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -138,79 +128,44 @@ public class NamesCapture extends javax.swing.JDialog {
     private void jbStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbStartActionPerformed
         // TODO add your handling code here:
         names.clear();
-        names.add (jtName1.getText());
-        if (nPlayers > 1) {
-            names.add(jtName2.getText());
-            if (nPlayers > 2) {
-                names.add(jtName3.getText());
-                if (nPlayers > 3)
-                    names.add(jtName4.getText());
-            }
+        if(jtName1.getText().length() != 0){
+            names.add(jtName1.getText());
         }
-                    
-        dispose();
+        if(jtName2.getText().length() != 0){
+            names.add(jtName2.getText());
+        }
+        if(jtName3.getText().length() != 0){
+            names.add(jtName3.getText());
+        }
+        if(jtName4.getText().length() != 0){
+            names.add(jtName4.getText());
+        }
+        
+        if(names.size() < 2)
+            JOptionPane.showMessageDialog(this, "ERROR. NO HAS INSERTADO MINIMO 2 JUGADORES.", MainWindow.getInstance().getAppName(), JOptionPane.ERROR_MESSAGE);
+        else{
+            dispose();
+        }
     }//GEN-LAST:event_jbStartActionPerformed
 
-    private void jtName4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtName4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtName4ActionPerformed
-
     /**
-     * @param args the command line arguments
+     * @brief Obtiene los nombres de los jugadores
+     * @return ArrayList con los nombres
      */
-    /*public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        /*try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NamesCapture.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NamesCapture.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NamesCapture.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NamesCapture.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        /*java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                NamesCapture dialog = new NamesCapture( parent,nPlayers);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }*/
-    
     ArrayList<String> getNames() {
         setVisible(true);
         return names;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton jbStart;
     private javax.swing.JTextField jtName1;
     private javax.swing.JTextField jtName2;
     private javax.swing.JTextField jtName3;
     private javax.swing.JTextField jtName4;
+    private javax.swing.JLabel name1;
+    private javax.swing.JLabel name2;
+    private javax.swing.JLabel name3;
+    private javax.swing.JLabel name4;
     // End of variables declaration//GEN-END:variables
 }

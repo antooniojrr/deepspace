@@ -25,34 +25,30 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtName1" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtName2" min="-2" pref="152" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jbStart" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="name1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jtName1" min="-2" pref="224" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtName4" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtName3" min="-2" pref="152" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="name2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jtName2" max="32767" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="name3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jtName3" min="-2" pref="224" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="name4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jtName4" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="jbStart" alignment="1" min="-2" pref="306" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -61,70 +57,82 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="name1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jtName1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="name2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jtName2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtName4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="name3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtName3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtName3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="name4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtName4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jbStart" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="jtName2">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="name1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="13" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nombre 1: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="name2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="13" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Nombre 2: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="name3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre 1: "/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="13" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nombre 3: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="name4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="13" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nombre 4: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtName1">
     </Component>
+    <Component class="javax.swing.JTextField" name="jtName2">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jtName3">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jtName4">
+    </Component>
     <Component class="javax.swing.JButton" name="jbStart">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="13" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Empezar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbStartActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre 4: "/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jtName3">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jtName4">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtName4ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre 3: "/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

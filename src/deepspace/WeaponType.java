@@ -21,6 +21,11 @@ public enum WeaponType {
         float getPower() { return this.power; }
         
         public String toString(){
-            return ("Power: " + getPower());
+            if (getPower() == 2.0)
+                return "Laser";
+            else if (getPower() == 3.0)
+                return "Missile";
+            else
+                return "Plasma";
         }
     }
