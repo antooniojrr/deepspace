@@ -136,6 +136,7 @@ public class MainWindow extends JFrame implements DeepSpaceView{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        combatButton.setBackground(new java.awt.Color(255, 255, 204));
         combatButton.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         combatButton.setText("C O M B A T I R");
         combatButton.addActionListener(new java.awt.event.ActionListener() {
@@ -144,6 +145,7 @@ public class MainWindow extends JFrame implements DeepSpaceView{
             }
         });
 
+        exitButton.setBackground(new java.awt.Color(255, 255, 204));
         exitButton.setText("SALIR DEL JUEGO");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,8 +157,10 @@ public class MainWindow extends JFrame implements DeepSpaceView{
 
         stationPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
+        nextTurnButton.setBackground(new java.awt.Color(255, 255, 204));
         nextTurnButton.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         nextTurnButton.setText("SIGUIENTE TURNO");
+        nextTurnButton.setToolTipText("");
         nextTurnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextTurnButtonActionPerformed(evt);
