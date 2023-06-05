@@ -33,23 +33,25 @@ public class HangarView extends JPanel {
             setVisible(false);
         }
         else{
-            hangarPanel.removeAll();
+            weaponsPanel.removeAll();
+            shieldsPanel.removeAll();
             String title = "Hangar con " + h.getMaxElements() + " lugares";
-            hangarPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), title));
-            
+            weaponsPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), title));
+            shieldsPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), title));
+
             ArrayList<WeaponToUI> weapons = h.getWeapons();
             ArrayList<ShieldToUI> shieldBoosters = h.getShieldBoosters();
         
             for(WeaponToUI w : weapons){
                 WeaponView weaponView = new WeaponView();
                 weaponView.setWeapon(w);
-                hangarPanel.add(weaponView);
+                weaponsPanel.add(weaponView);
             }
         
             for(ShieldToUI s : shieldBoosters){
                 ShieldView shieldView = new ShieldView();
                 shieldView.setShield(s);
-                hangarPanel.add(shieldView);
+                shieldsPanel.add(shieldView);
             }
         }
         
@@ -62,25 +64,31 @@ public class HangarView extends JPanel {
      * @param weaponsSelected : Almacena los índices de los weapons del hangar seleccionados por el usuario
      * @param shieldsSelected : Almacena los índices de los shieldBosoter del hangar seleccionados por el usuario
      */
-    void getSelectedInHangar(ArrayList<Integer> weaponsSelected, ArrayList<Integer> shieldsSelected){
-        int numWeapons = Controller.getInstance().getUIversion().getCurrentStation().getHangar().getWeapons().size();
-        int numShields = Controller.getInstance().getUIversion().getCurrentStation().getHangar().getShieldBoosters().size();
-        
-        
-        for(int i=0; i<numWeapons; i++){
-            Component c = hangarPanel.getComponent(i);
-            if(((CombatElementView) c).isSelected()){
-                weaponsSelected.add(i);
-            }
+    ArrayList<Integer> getSelectedWeaponsInHangar(){
+        ArrayList<Integer> selectedWeapons = new ArrayList<>();
+      
+        int i = 0; 
+        for(Component c : weaponsPanel.getComponents()){
+            if (((WeaponView) c).isSelected())
+                selectedWeapons.add(i);
+            i++;
         }
         
-        for(int i=0; i<numShields; i++){
-            Component c = hangarPanel.getComponent(i+numWeapons);
-            if(((CombatElementView) c).isSelected()){
-                shieldsSelected.add(i);
-            }
+        return selectedWeapons;                
+   }
+        
+    ArrayList<Integer> getSelectedShieldsInHangar(){
+        ArrayList<Integer> selectedShields = new ArrayList<>();
+      
+        int i = 0; 
+        for(Component c : shieldsPanel.getComponents()){
+            if (((ShieldView) c).isSelected())
+                selectedShields.add(i);
+            i++;
         }
-    }
+        
+        return selectedShields;                
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -91,29 +99,47 @@ public class HangarView extends JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        hangarScroll = new javax.swing.JScrollPane();
-        hangarPanel = new javax.swing.JPanel();
+        jScrollPanel1 = new javax.swing.JScrollPane();
+        weaponsPanel = new javax.swing.JPanel();
+        jScrollPanel2 = new javax.swing.JScrollPane();
+        shieldsPanel = new javax.swing.JPanel();
 
-        setBorder(null);
+        weaponsPanel.setPreferredSize(new java.awt.Dimension(198, 108));
+        jScrollPanel1.setViewportView(weaponsPanel);
 
-        hangarScroll.setBorder(null);
-        hangarScroll.setViewportView(hangarPanel);
+        shieldsPanel.setPreferredSize(new java.awt.Dimension(198, 108));
+        jScrollPanel2.setViewportView(shieldsPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(hangarScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addComponent(jScrollPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(hangarScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel hangarPanel;
-    private javax.swing.JScrollPane hangarScroll;
+    private javax.swing.JScrollPane jScrollPanel1;
+    private javax.swing.JScrollPane jScrollPanel2;
+    private javax.swing.JPanel shieldsPanel;
+    private javax.swing.JPanel weaponsPanel;
     // End of variables declaration//GEN-END:variables
 }

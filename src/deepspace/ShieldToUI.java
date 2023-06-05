@@ -12,10 +12,13 @@ package deepspace;
 public class ShieldToUI {
     private float boost;
     private int uses;
+    private String name;
 
     ShieldToUI (ShieldBooster s) {
         boost=s.getBoost();
         uses=s.getUses();
+        name = s.getName();
+        
     }    
 
     public float getBoost() {

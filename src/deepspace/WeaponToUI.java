@@ -13,13 +13,19 @@ public class WeaponToUI {
     private WeaponType type;
     private float power;
     private int uses;  
+    private String name;
     
     WeaponToUI(Weapon w) {
         type=w.getType();
         power=w.power();
         uses=w.getUses();
+        name = w.getName();
     }  
 
+    public String getName(){
+        return name;
+    }
+    
     public WeaponType getType() {
         return type;
     }

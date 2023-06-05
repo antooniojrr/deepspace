@@ -53,7 +53,7 @@ public class SpaceStationView extends JPanel {
         
         panelWeaponsMounted.removeAll();
         panelShieldsMounted.removeAll();
-        panelHangarStation.removeAll();
+        hangarPanel.removeAll();
         pendingDamage.removeAll();
         
         WeaponView weaponView;
@@ -76,7 +76,7 @@ public class SpaceStationView extends JPanel {
              
         hangarView = new HangarView(); 
         hangarView.setHangar(station.getHangar());
-        panelHangarStation.add(hangarView);
+        hangarPanel.add(hangarView);
         
         enabledButtons(station);
         
@@ -122,7 +122,7 @@ public class SpaceStationView extends JPanel {
         
         int i = 0;
         for (Component c : panelWeaponsMounted.getComponents()) {
-            if (((CombatElementView) c).isSelected()) {
+            if (((WeaponView) c).isSelected()) {
                 selectedWeaponsMounted.add(i);
             }
             i++;
@@ -140,7 +140,7 @@ public class SpaceStationView extends JPanel {
         
         int i = 0;
         for (Component c : panelShieldsMounted.getComponents()) {
-            if (((CombatElementView) c).isSelected()) {
+            if (((ShieldView) c).isSelected()) {
                 selectedShieldsMounted.add(i);
             }
             i++;
@@ -171,10 +171,10 @@ public class SpaceStationView extends JPanel {
         weaponsMounted = new javax.swing.JScrollPane();
         panelWeaponsMounted = new javax.swing.JPanel();
         pendingDamage = new javax.swing.JPanel();
-        panelHangarStation = new javax.swing.JPanel();
         mountButton = new javax.swing.JButton();
         discardButton = new javax.swing.JButton();
         discardHangarButton = new javax.swing.JButton();
+        hangarPanel = new javax.swing.JPanel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -216,8 +216,6 @@ public class SpaceStationView extends JPanel {
 
         pendingDamage.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        panelHangarStation.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-
         mountButton.setText("Equipar");
         mountButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,46 +241,50 @@ public class SpaceStationView extends JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(weaponsMounted, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
-                    .addComponent(shieldsMounted, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(fuelTitle)
-                                .addGap(18, 18, 18)
-                                .addComponent(fuelStation))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(medalsTitle)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(medalsStation))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(fireTitle)
-                                        .addComponent(shieldTitle))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(23, 23, 23)
-                                            .addComponent(fireStation))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(24, 24, 24)
-                                            .addComponent(shieldStation)))))
-                            .addComponent(stationName))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                        .addComponent(pendingDamage, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addComponent(panelHangarStation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(mountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(discardButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(discardHangarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(mountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(discardButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(discardHangarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(weaponsMounted, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
+                            .addComponent(shieldsMounted)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(fuelTitle)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(fuelStation))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(medalsTitle)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(medalsStation))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(fireTitle)
+                                                .addComponent(shieldTitle))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(23, 23, 23)
+                                                    .addComponent(fireStation))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(24, 24, 24)
+                                                    .addComponent(shieldStation)))))
+                                    .addComponent(stationName))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                                .addComponent(pendingDamage, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(hangarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,9 +314,9 @@ public class SpaceStationView extends JPanel {
                 .addComponent(weaponsMounted, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(shieldsMounted, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelHangarStation, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(hangarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mountButton)
                     .addComponent(discardButton)
@@ -334,7 +336,8 @@ public class SpaceStationView extends JPanel {
         ArrayList<Integer> weaponsSelected = new ArrayList<>();
         ArrayList<Integer> shieldsSelected = new ArrayList<>();
         
-        hangarView.getSelectedInHangar(weaponsSelected, shieldsSelected);
+        weaponsSelected = hangarView.getSelectedWeaponsInHangar();
+        shieldsSelected = hangarView.getSelectedShieldsInHangar();
         Controller.getInstance().mount(weaponsSelected, shieldsSelected);
         
         MainWindow.getInstance().updateView();
@@ -351,7 +354,8 @@ public class SpaceStationView extends JPanel {
         Controller.getInstance().discard(Controller.SHIELD, weaponsMountedSelected, shieldsMountedSelected);
         
         if(Controller.getInstance().getUIversion().getCurrentStation().getHangar() != null){
-            hangarView.getSelectedInHangar(weaponsSelectedInHangar, shieldsSelectedInHangar);
+            weaponsSelectedInHangar = hangarView.getSelectedWeaponsInHangar();
+            shieldsSelectedInHangar = hangarView.getSelectedShieldsInHangar();
             Controller.getInstance().discard(Controller.HANGAR, weaponsSelectedInHangar, shieldsSelectedInHangar);
         }
         
@@ -366,10 +370,10 @@ public class SpaceStationView extends JPanel {
     private javax.swing.JLabel fireTitle;
     private javax.swing.JLabel fuelStation;
     private javax.swing.JLabel fuelTitle;
+    private javax.swing.JPanel hangarPanel;
     private javax.swing.JLabel medalsStation;
     private javax.swing.JLabel medalsTitle;
     private javax.swing.JButton mountButton;
-    private javax.swing.JPanel panelHangarStation;
     private javax.swing.JPanel panelShieldsMounted;
     private javax.swing.JPanel panelWeaponsMounted;
     private javax.swing.JPanel pendingDamage;

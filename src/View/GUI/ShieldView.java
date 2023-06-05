@@ -7,7 +7,7 @@ import deepspace.ShieldToUI;
 /**
  * @brief Esta clase implementa la interfaz gráfica de un objeto de tipo ShieldToUI
  */
-public class ShieldView extends JPanel implements CombatElementView{
+public class ShieldView extends JPanel{
     
     private boolean selected = false;
 
@@ -23,7 +23,6 @@ public class ShieldView extends JPanel implements CombatElementView{
      * @brief Determina si el objeto está seleccionado por el usuario
      * @return selected
      */
-    @Override
     public boolean isSelected () {
         return selected;
     }
@@ -33,6 +32,7 @@ public class ShieldView extends JPanel implements CombatElementView{
      * @param shield : Objeto ShieldToUI que se le pasará a la vista
      */
     void setShield(ShieldToUI shield){
+        name.setText(shield.toString());
         power.setText(Float.toString(shield.getBoost()));
         uses.setText(Integer.toString(shield.getUses()));
         revalidate();
@@ -52,9 +52,11 @@ public class ShieldView extends JPanel implements CombatElementView{
         titleUsos = new javax.swing.JLabel();
         power = new javax.swing.JLabel();
         uses = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 102));
+        setBackground(new java.awt.Color(204, 204, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        setPreferredSize(new java.awt.Dimension(198, 108));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -73,6 +75,10 @@ public class ShieldView extends JPanel implements CombatElementView{
         uses.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         uses.setText("jLabel1");
 
+        name.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        name.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,18 +86,25 @@ public class ShieldView extends JPanel implements CombatElementView{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(titlePotencia)
-                    .addComponent(titleUsos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(uses)
-                    .addComponent(power))
-                .addGap(27, 27, 27))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(titlePotencia)
+                            .addComponent(titleUsos))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(uses)
+                            .addComponent(power))
+                        .addGap(27, 27, 27))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(name)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(name)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titlePotencia)
                     .addComponent(power))
@@ -99,7 +112,7 @@ public class ShieldView extends JPanel implements CombatElementView{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titleUsos)
                     .addComponent(uses))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -111,6 +124,7 @@ public class ShieldView extends JPanel implements CombatElementView{
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel name;
     private javax.swing.JLabel power;
     private javax.swing.JLabel titlePotencia;
     private javax.swing.JLabel titleUsos;

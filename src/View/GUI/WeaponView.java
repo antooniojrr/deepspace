@@ -7,7 +7,7 @@ import deepspace.WeaponToUI;
 /**
  * @brief Esta clase implementa la interfaz gráfica de un objeto de tipo WeaponToUI
  */
-public class WeaponView extends JPanel implements CombatElementView{
+public class WeaponView extends JPanel{
     
     private boolean selected = false;
 
@@ -23,7 +23,6 @@ public class WeaponView extends JPanel implements CombatElementView{
      * @brief Determina si el objeto está seleccionado por el usuario
      * @return selected
      */
-    @Override
     public boolean isSelected () {
         return selected;
     }
@@ -33,6 +32,7 @@ public class WeaponView extends JPanel implements CombatElementView{
      * @param weapon : Objeto WeaponToUI que se le pasará a la vista
      */
     void setWeapon(WeaponToUI weapon){
+        name.setText(weapon.getName());
         type.setText(weapon.getType().toString());
         power.setText(Float.toString(weapon.getPower()));
         uses.setText(Integer.toString(weapon.getUses()));
@@ -54,8 +54,9 @@ public class WeaponView extends JPanel implements CombatElementView{
         type = new javax.swing.JLabel();
         power = new javax.swing.JLabel();
         uses = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 102));
+        setBackground(new java.awt.Color(255, 204, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -81,6 +82,10 @@ public class WeaponView extends JPanel implements CombatElementView{
         uses.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         uses.setText("jLabel1");
 
+        name.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        name.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,37 +93,47 @@ public class WeaponView extends JPanel implements CombatElementView{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(titlePotencia))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(name)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(titleType)
-                            .addComponent(titleUsos))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(type)
-                    .addComponent(uses)
-                    .addComponent(power))
-                .addGap(27, 27, 27))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(titlePotencia)
+                                    .addComponent(titleUsos))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(uses, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(power, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(titleType)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(type)))
+                        .addGap(25, 25, 25))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(type)
-                    .addComponent(titleType))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(power)
-                    .addComponent(titlePotencia))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(uses)
-                    .addComponent(titleUsos))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(name)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(titleType)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(titlePotencia)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(titleUsos)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(type)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(power)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(uses)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -126,10 +141,12 @@ public class WeaponView extends JPanel implements CombatElementView{
         selected = !selected;
         setOpaque (selected);
         repaint();
+        revalidate();
     }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel name;
     private javax.swing.JLabel power;
     private javax.swing.JLabel titlePotencia;
     private javax.swing.JLabel titleType;
