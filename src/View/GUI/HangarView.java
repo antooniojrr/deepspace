@@ -104,10 +104,10 @@ public class HangarView extends JPanel {
         jScrollPanel2 = new javax.swing.JScrollPane();
         shieldsPanel = new javax.swing.JPanel();
 
-        weaponsPanel.setPreferredSize(new java.awt.Dimension(198, 108));
+        weaponsPanel.setPreferredSize(new java.awt.Dimension(200, 120));
         jScrollPanel1.setViewportView(weaponsPanel);
 
-        shieldsPanel.setPreferredSize(new java.awt.Dimension(198, 108));
+        shieldsPanel.setPreferredSize(new java.awt.Dimension(200, 120));
         jScrollPanel2.setViewportView(shieldsPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -115,23 +115,20 @@ public class HangarView extends JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(jScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                .addComponent(jScrollPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPanel2)
+                    .addComponent(jScrollPanel1))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
