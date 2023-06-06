@@ -36,9 +36,9 @@ public class HangarView extends JPanel {
             weaponsPanel.removeAll();
             shieldsPanel.removeAll();
             String title = "Hangar con " + h.getMaxElements() + " lugares";
-            weaponsPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), title));
-            shieldsPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), title));
-
+            //weaponsPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), title));
+            //shieldsPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), title));
+            setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), title));
             ArrayList<WeaponToUI> weapons = h.getWeapons();
             ArrayList<ShieldToUI> shieldBoosters = h.getShieldBoosters();
         
@@ -104,32 +104,38 @@ public class HangarView extends JPanel {
         jScrollPanel2 = new javax.swing.JScrollPane();
         shieldsPanel = new javax.swing.JPanel();
 
-        weaponsPanel.setPreferredSize(new java.awt.Dimension(200, 120));
+        setPreferredSize(new java.awt.Dimension(662, 199));
+
+        jScrollPanel1.setViewportView(null);
+
+        weaponsPanel.setPreferredSize(new java.awt.Dimension(240, 140));
         jScrollPanel1.setViewportView(weaponsPanel);
 
-        shieldsPanel.setPreferredSize(new java.awt.Dimension(200, 120));
+        shieldsPanel.setPreferredSize(new java.awt.Dimension(240, 140));
         jScrollPanel2.setViewportView(shieldsPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addComponent(jScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addComponent(jScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addComponent(jScrollPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPanel2)
                     .addComponent(jScrollPanel1))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
+
+        jScrollPanel1.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
 

@@ -43,22 +43,23 @@ public class SpecificDamage extends Damage {
     
     public SpecificDamage adjust(ArrayList<Weapon> w, ArrayList<ShieldBooster> s){
         
-        int sh = 0;
-        int nShields_new, nWeapons_new;
+        int nShields_new=s.size();
         ArrayList<WeaponType> weapons_new = new ArrayList<>();
+        ArrayList<Weapon> aux = new ArrayList<>();
         
-        for (int i = 0; i < s.size(); i++){
-            sh += s.get(i).getUses();
-        }
+        for( Weapon weap: w)
+            aux.add(weap);
         
-        if (getNShields() > sh)
-            nShields_new = sh;
-        else
+        if (getNShields() < nShields_new)
             nShields_new = getNShields();
+        int i;
       
-        for (int i = 0; i < weapons.size(); i++){
-            if(arrayContainsType(w, weapons.get(i)) != -1)
-                weapons_new.add(weapons.get(i));
+        for (WeaponType wt : weapons){
+            i = arrayContainsType(aux, wt);
+            if(i != -1) {
+                weapons_new.add(wt);
+                aux.remove(i);
+            }
         }
 
         return (new SpecificDamage(weapons_new, nShields_new));

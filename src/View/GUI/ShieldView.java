@@ -32,7 +32,7 @@ public class ShieldView extends JPanel{
      * @param shield : Objeto ShieldToUI que se le pasará a la vista
      */
     void setShield(ShieldToUI shield){
-        name.setText(shield.toString());
+        name.setText(shield.getName());
         power.setText(Float.toString(shield.getBoost()));
         uses.setText(Integer.toString(shield.getUses()));
         revalidate();

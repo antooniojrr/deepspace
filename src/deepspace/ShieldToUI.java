@@ -29,5 +29,9 @@ public class ShieldToUI {
         return uses;
     }
     
+    public String getName() {
+        return name;
+    }
+    
     
 }
