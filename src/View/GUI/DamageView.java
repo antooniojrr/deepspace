@@ -47,7 +47,8 @@ public class DamageView extends JPanel {
         shields = new javax.swing.JLabel();
         weapons = new javax.swing.JTextArea();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Pérdidas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
+        setBackground(new java.awt.Color(255, 102, 102));
+        setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Pérdidas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
         setPreferredSize(new java.awt.Dimension(399, 124));
 
         titleWeapons.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
@@ -60,7 +61,7 @@ public class DamageView extends JPanel {
         shields.setText("jLabel2");
 
         weapons.setEditable(false);
-        weapons.setBackground(new java.awt.Color(239, 239, 239));
+        weapons.setBackground(new java.awt.Color(255, 102, 102));
         weapons.setColumns(20);
         weapons.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         weapons.setLineWrap(true);

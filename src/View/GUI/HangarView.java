@@ -104,12 +104,16 @@ public class HangarView extends JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         weaponsPanel = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(255, 255, 204));
         setPreferredSize(new java.awt.Dimension(662, 199));
 
+        shieldsPanel.setBackground(new java.awt.Color(255, 255, 204));
         shieldsPanel.setPreferredSize(new java.awt.Dimension(240, 140));
         jScrollPanel2.setViewportView(shieldsPanel);
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(240, 140));
+
+        weaponsPanel.setBackground(new java.awt.Color(255, 255, 204));
         jScrollPane1.setViewportView(weaponsPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

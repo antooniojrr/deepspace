@@ -29,7 +29,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="name1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jtName1" min="-2" pref="224" max="-2" attributes="0"/>
+                      <Component id="jtName1" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="name2" min="-2" max="-2" attributes="0"/>
@@ -39,7 +39,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="name3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jtName3" min="-2" pref="224" max="-2" attributes="0"/>
+                      <Component id="jtName3" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="name4" min="-2" max="-2" attributes="0"/>
@@ -88,7 +88,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="13" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nombre 1: "/>
+        <Property name="text" type="java.lang.String" value="Player 1: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="name2">
@@ -96,7 +96,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="13" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nombre 2: "/>
+        <Property name="text" type="java.lang.String" value="Player 2: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="name3">
@@ -104,7 +104,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="13" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nombre 3: "/>
+        <Property name="text" type="java.lang.String" value="Player 3: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="name4">
@@ -112,7 +112,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="13" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nombre 4: "/>
+        <Property name="text" type="java.lang.String" value="Player 4: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtName1">

@@ -71,7 +71,8 @@ public class EnemyStarShipView extends JPanel {
         enemyFire = new javax.swing.JLabel();
         enemyShield = new javax.swing.JLabel();
 
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        setBackground(new java.awt.Color(255, 204, 204));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         enemyTitle.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         enemyTitle.setText("Enemigo:");
@@ -82,8 +83,10 @@ public class EnemyStarShipView extends JPanel {
         shieldTitle.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         shieldTitle.setText("Potencia de defensa:");
 
+        enemyLootPanel.setBackground(new java.awt.Color(255, 204, 204));
         enemyLootPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
+        enemyDamagePanel.setBackground(new java.awt.Color(255, 204, 204));
         enemyDamagePanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         enemyName.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
@@ -120,7 +123,7 @@ public class EnemyStarShipView extends JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(enemyDamagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +143,7 @@ public class EnemyStarShipView extends JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(enemyLootPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enemyDamagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                .addComponent(enemyDamagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

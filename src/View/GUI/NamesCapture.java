@@ -53,16 +53,16 @@ public class NamesCapture extends JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         name1.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
-        name1.setText("Nombre 1: ");
+        name1.setText("Player 1: ");
 
         name2.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
-        name2.setText("Nombre 2: ");
+        name2.setText("Player 2: ");
 
         name3.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
-        name3.setText("Nombre 3: ");
+        name3.setText("Player 3: ");
 
         name4.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
-        name4.setText("Nombre 4: ");
+        name4.setText("Player 4: ");
 
         jbStart.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         jbStart.setText("Empezar");
@@ -82,7 +82,7 @@ public class NamesCapture extends JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(name1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtName1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtName1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(name2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -90,7 +90,7 @@ public class NamesCapture extends JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(name3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtName3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtName3))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(name4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

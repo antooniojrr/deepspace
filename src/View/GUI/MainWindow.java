@@ -135,10 +135,13 @@ public class MainWindow extends JFrame implements DeepSpaceView{
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
 
-        combatButton.setBackground(new java.awt.Color(255, 255, 204));
-        combatButton.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        combatButton.setText("C O M B A T I R");
+        combatButton.setBackground(new java.awt.Color(255, 153, 153));
+        combatButton.setFont(new java.awt.Font("Monocraft", 0, 24)); // NOI18N
+        combatButton.setText("COMBATIR!!!");
+        combatButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        combatButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         combatButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combatButtonActionPerformed(evt);
@@ -146,7 +149,10 @@ public class MainWindow extends JFrame implements DeepSpaceView{
         });
 
         exitButton.setBackground(new java.awt.Color(255, 255, 204));
-        exitButton.setText("SALIR DEL JUEGO");
+        exitButton.setFont(new java.awt.Font("Monocraft", 0, 15)); // NOI18N
+        exitButton.setText("SALIR");
+        exitButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitButtonActionPerformed(evt);
@@ -157,10 +163,12 @@ public class MainWindow extends JFrame implements DeepSpaceView{
 
         stationPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        nextTurnButton.setBackground(new java.awt.Color(255, 255, 204));
-        nextTurnButton.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
+        nextTurnButton.setBackground(new java.awt.Color(255, 204, 153));
+        nextTurnButton.setFont(new java.awt.Font("Monocraft", 0, 14)); // NOI18N
         nextTurnButton.setText("SIGUIENTE TURNO");
         nextTurnButton.setToolTipText("");
+        nextTurnButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nextTurnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         nextTurnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextTurnButtonActionPerformed(evt);
@@ -181,12 +189,12 @@ public class MainWindow extends JFrame implements DeepSpaceView{
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nextTurnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(nextTurnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(combatButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(combatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(44, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -199,9 +207,9 @@ public class MainWindow extends JFrame implements DeepSpaceView{
                         .addGap(135, 135, 135)
                         .addComponent(combatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nextTurnButton)
-                            .addComponent(exitButton)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nextTurnButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(stationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)))

@@ -176,46 +176,63 @@ public class SpaceStationView extends JPanel {
         discardHangarButton = new javax.swing.JButton();
         hangarPanel = new javax.swing.JPanel();
 
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        setBackground(new java.awt.Color(255, 255, 204));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
-        stationName.setBackground(new java.awt.Color(255, 0, 0));
+        stationName.setBackground(new java.awt.Color(255, 255, 204));
         stationName.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         stationName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         stationName.setText("ESTACIÓN DE EJEMPLO");
 
+        fireTitle.setBackground(new java.awt.Color(255, 255, 204));
         fireTitle.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         fireTitle.setText("Potencia de ataque:");
 
+        shieldTitle.setBackground(new java.awt.Color(255, 255, 204));
         shieldTitle.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         shieldTitle.setText("Potencia de defensa:");
 
+        fuelTitle.setBackground(new java.awt.Color(255, 255, 204));
         fuelTitle.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         fuelTitle.setText("Nivel de combustible:");
 
+        medalsTitle.setBackground(new java.awt.Color(255, 255, 204));
         medalsTitle.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         medalsTitle.setText("Medallas:");
 
+        fireStation.setBackground(new java.awt.Color(255, 255, 204));
         fireStation.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         fireStation.setText("jLabel5");
 
+        medalsStation.setBackground(new java.awt.Color(255, 255, 204));
         medalsStation.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         medalsStation.setText("jLabel5");
 
+        shieldStation.setBackground(new java.awt.Color(255, 255, 204));
         shieldStation.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         shieldStation.setText("jLabel5");
 
+        fuelStation.setBackground(new java.awt.Color(255, 255, 204));
         fuelStation.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         fuelStation.setText("jLabel5");
 
-        shieldsMounted.setBackground(new java.awt.Color(239, 239, 239));
-        shieldsMounted.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Potenciadores de Defensa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(1, 1, 1))); // NOI18N
+        shieldsMounted.setBackground(new java.awt.Color(255, 255, 204));
+        shieldsMounted.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Potenciadores de Defensa", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(1, 1, 1))); // NOI18N
+
+        panelShieldsMounted.setBackground(new java.awt.Color(255, 255, 153));
         shieldsMounted.setViewportView(panelShieldsMounted);
 
-        weaponsMounted.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Potenciadores de Fuego", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(1, 1, 1))); // NOI18N
+        weaponsMounted.setBackground(new java.awt.Color(255, 255, 204));
+        weaponsMounted.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Potenciadores de Fuego", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(1, 1, 1))); // NOI18N
+
+        panelWeaponsMounted.setBackground(new java.awt.Color(255, 255, 153));
         weaponsMounted.setViewportView(panelWeaponsMounted);
 
+        pendingDamage.setBackground(new java.awt.Color(255, 255, 204));
         pendingDamage.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
+        mountButton.setBackground(new java.awt.Color(204, 255, 102));
+        mountButton.setFont(new java.awt.Font("Monocraft", 0, 15)); // NOI18N
         mountButton.setText("Equipar");
         mountButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,6 +240,8 @@ public class SpaceStationView extends JPanel {
             }
         });
 
+        discardButton.setBackground(new java.awt.Color(255, 153, 153));
+        discardButton.setFont(new java.awt.Font("Monocraft", 0, 14)); // NOI18N
         discardButton.setText("Descartar");
         discardButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,12 +249,16 @@ public class SpaceStationView extends JPanel {
             }
         });
 
+        discardHangarButton.setBackground(new java.awt.Color(255, 102, 102));
+        discardHangarButton.setFont(new java.awt.Font("Monocraft", 0, 14)); // NOI18N
         discardHangarButton.setText("Descartar Hangar Completo");
         discardHangarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 discardHangarButtonActionPerformed(evt);
             }
         });
+
+        hangarPanel.setBackground(new java.awt.Color(255, 255, 204));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -244,7 +267,7 @@ public class SpaceStationView extends JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(weaponsMounted, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
+                    .addComponent(weaponsMounted, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
                     .addComponent(shieldsMounted)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,7 +292,7 @@ public class SpaceStationView extends JPanel {
                                             .addGap(24, 24, 24)
                                             .addComponent(shieldStation)))))
                             .addComponent(stationName))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addComponent(pendingDamage, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(hangarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -307,16 +330,17 @@ public class SpaceStationView extends JPanel {
                             .addComponent(medalsStation)))
                     .addComponent(pendingDamage, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(weaponsMounted, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                .addComponent(weaponsMounted, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(shieldsMounted, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                .addComponent(shieldsMounted, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hangarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                .addComponent(hangarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mountButton)
-                    .addComponent(discardButton)
-                    .addComponent(discardHangarButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(discardButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(mountButton)
+                        .addComponent(discardHangarButton)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
