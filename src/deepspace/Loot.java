@@ -52,9 +52,13 @@ class Loot {
     public boolean spaceCity() { return this.spaceCity; }
     
     public String toString(){
-        return ("NSupplies: " + getNSupplies() + "NWeapons: " + getNWeapons()
-                + "NShield: " + getNShields() + "NHangars: " + getNHangars()
-                + "NMedals: " + getNMedals());
+        String out = "";
+        out += " - Armas ..... : " + getNWeapons() + "\n";
+        out += " - Escudos ... : " + getNShields() + "\n";
+        out += " - Hangares .. : " + getNHangars() + "\n";
+        out += " - Suministros : " + getNSupplies() + "\n";
+        out += " - Medallas .. : " + getNMedals() + "\n";
+        return out;
     }
     
     LootToUI getUIversion(){return new LootToUI (this);}
