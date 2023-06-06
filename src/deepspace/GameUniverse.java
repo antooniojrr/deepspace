@@ -72,7 +72,7 @@ public class GameUniverse {
     }
     
     public void discardWeaponInHangar(int i) {
-        currentStation.discardShieldBoosterInHangar(i);
+        currentStation.discardWeaponInHangar(i);
     }
     
     public void discardWeapon(int i) {

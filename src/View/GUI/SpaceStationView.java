@@ -367,19 +367,21 @@ public class SpaceStationView extends JPanel {
         ArrayList<Integer> weaponsMountedSelected = getSelectedWeaponsMounted();
         ArrayList<Integer> shieldsMountedSelected = getSelectedShieldsMounted();
         
-        ArrayList<Integer> weaponsSelectedInHangar = new ArrayList<>();
-        ArrayList<Integer> shieldsSelectedInHangar = new ArrayList<>();
-        
+                
         Controller.getInstance().discard(Controller.WEAPON, weaponsMountedSelected, shieldsMountedSelected);
         Controller.getInstance().discard(Controller.SHIELD, weaponsMountedSelected, shieldsMountedSelected);
         
         if(Controller.getInstance().getUIversion().getCurrentStation().getHangar() != null){
-            weaponsSelectedInHangar = hangarView.getSelectedWeaponsInHangar();
-            shieldsSelectedInHangar = hangarView.getSelectedShieldsInHangar();
+            ArrayList<Integer> weaponsSelectedInHangar = hangarView.getSelectedWeaponsInHangar();
+            ArrayList<Integer> shieldsSelectedInHangar = hangarView.getSelectedShieldsInHangar();
             Controller.getInstance().discard(Controller.HANGAR, weaponsSelectedInHangar, shieldsSelectedInHangar);
         }
         
         MainWindow.getInstance().updateView();
+        repaint();
+        revalidate();
+        
+                
     }//GEN-LAST:event_discardButtonActionPerformed
 
 
