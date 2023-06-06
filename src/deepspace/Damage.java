@@ -33,4 +33,13 @@ public abstract class Damage {
     
     public abstract Damage copy();
     
+    public String toString () {
+        String out = "";
+
+        out += " - Armas . : " + getUIversion().getWeaponInfo() + "\n";
+        out += " - Escudos : " + getNShields() + "\n";
+
+        return out;
+    }
+ 
 }

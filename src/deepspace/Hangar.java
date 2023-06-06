@@ -71,11 +71,17 @@ public class Hangar {
     }
     
     public String toString() {
-        String out = "Max Elements: " + maxElements + ", Weapons: ";
-        out += weapons.toString() + ", Shields: ";
-        out += shieldBoosters.toString();
-        return out;
-        
+        String out = "";
+        int slots = getMaxElements();
+        out += "Dispone de un Hangar con " + slots;
+        if (slots == 1) {
+            out += " lugar \n";
+        } else {
+            out += " lugares \n";
+        }
+        out += getWeapons().toString();
+        out += getShieldBoosters().toString();
+        return out; 
     }
     
 }

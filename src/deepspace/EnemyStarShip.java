@@ -55,4 +55,16 @@ public class EnemyStarShip implements SpaceFighter {
     public Loot getLoot(){return loot;}
     public Damage getDamage(){return damage;}
     
+    public String toString() {
+    String out = "";
+    out += "Nombre ............ : " + getName() + "\n";
+    out += "Potencia de fuego . : " + getAmmoPower() + "\n";
+    out += "Potencia de defensa : " + getShieldPower() + "\n";
+    out += "Botín : \n";
+    out += getLoot().toString();
+    out += "Pérdidas : \n";
+    out += getDamage().toString();
+    return out;
+  }
+    
 }
